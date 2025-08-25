@@ -12,9 +12,21 @@ st.title("Análise de Fraudes em Transações Bancárias")
 # -------------------- Loader --------------------
 with st.spinner("Carregando dados..."):
     url = "https://drive.google.com/uc?id=1NdnQDFrrb30ILs0i8wvnht-jqoSAlmTC"
-    df = pd.read_csv(url)
+    
+    try:
+        df = pd.read_csv(url)
+        
+        # Verifica se as colunas principais existem
+        expected_cols = {'Time', 'Amount', 'Class'}
+        if not expected_cols.issubset(set(df.columns)):
+            st.error(f"⚠️ As colunas esperadas ({expected_cols}) não estão no CSV. Colunas encontradas: {list(df.columns)}")
+            st.stop()
 
-st.success(f"Dataset carregado com {len(df):,} linhas e {df.shape[1]} colunas.")
+    except Exception as e:
+        st.error(f"❌ Erro ao carregar o CSV: {e}")
+        st.stop()
+
+st.success(f"✅ Dataset carregado com {len(df):,} linhas e {df.shape[1]} colunas.")
 
 # -------------------- Apresentação dos Dados --------------------
 st.markdown("""
