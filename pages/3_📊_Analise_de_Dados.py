@@ -12,7 +12,7 @@ st.title("Análise de Fraudes em Transações Bancárias")
 # -------------------- Loader --------------------
 with st.spinner("Carregando dados..."):
     url = "https://drive.google.com/uc?id=1NdnQDFrrb30ILs0i8wvnht-jqoSAlmTC"
-    git add .df = pd.read_csv(url)
+    df = pd.read_csv(url)
 
 st.success(f"Dataset carregado com {len(df):,} linhas e {df.shape[1]} colunas.")
 
