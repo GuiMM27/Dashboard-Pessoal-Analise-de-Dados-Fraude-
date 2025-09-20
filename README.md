@@ -13,7 +13,7 @@ creditcard-fraud-dashboard/
 ├─ utils/
 │  └─ analysis_utils.py
 ├─ data/
-│  └─ creditcard.csv              # (opcional) coloque aqui o dataset do Kaggle
+│  └─ creditcard.csv              
 ├─ requirements.txt
 ├─ README.md
 ```
