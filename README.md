@@ -1,8 +1,20 @@
-# Dashboard Profissional + Análise de Dados (Detecção de Fraudes)
+# 📊 Dashboard Profissional & Análise de Fraudes
 
-Projeto Streamlit multi-páginas para a CP1.
+Este projeto é uma aplicação interativa construída em **Streamlit**. Ele funciona como um portfólio dinâmico (apresentando perfil, experiências e habilidades) e integra uma robusta Análise Exploratória de Dados (EDA) focada em **Detecção de Fraudes em Cartões de Crédito**.
 
-## Estrutura
+## 🚀 Funcionalidades da Aplicação
+
+O Dashboard é dividido em 4 páginas principais:
+- **🏠 Home:** Apresentação pessoal e objetivo profissional.
+- **📚 Formação e Experiência:** Histórico acadêmico e trajetória profissional.
+- **🛠️ Skills:** Hard e soft skills, tecnologias e ferramentas de domínio.
+- **📈 Análise de Dados:** Exploração de um dataset real de transações financeiras, contendo:
+  - Análise de distribuições e variáveis.
+  - Correlações e medidas de dispersão.
+  - Testes de Hipótese e cálculo de Intervalos de Confiança (IC).
+
+## 📂 Estrutura do Projeto
+
 ```
 creditcard-fraud-dashboard/
 ├─ Home.py
@@ -13,39 +25,37 @@ creditcard-fraud-dashboard/
 ├─ utils/
 │  └─ analysis_utils.py
 ├─ data/
-│  └─ creditcard.csv              
+│  └─ creditcard.csv (Necessário download manual)             
 ├─ requirements.txt
 ├─ README.md
 ```
-> Dica: você pode usar **upload de arquivo** diretamente pela aba *Análise de Dados* caso não queira salvar o CSV em `data/`.
 
-## Passo a passo para rodar localmente
-1. Instale as dependências (de preferência em um ambiente virtual):
-   ```bash
-   pip install -r requirements.txt
-   ```
-2. Baixe o dataset do Kaggle (https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud) e extraia o arquivo `creditcard.csv`.
-3. Coloque o `creditcard.csv` em `data/` **ou** suba o arquivo pela interface na aba *Análise de Dados*.
-4. Rode o dashboard:
-   ```bash
-   streamlit run Home.py
-   ```
+## ⚙️ Como executar localmente
+Siga os passos abaixo para rodar a aplicação em sua máquina:
 
-## Deploy (Streamlit Community Cloud)
-1. Suba este projeto para um repositório no GitHub.
-2. Acesse https://share.streamlit.io e conecte ao seu repositório.
-3. Selecione `Home.py` como entrypoint. O `requirements.txt` já está pronto.
-4. Clique em **Deploy** e compartilhe o link (vale ponto extra).
+Clone o repositório:
+```
+git clone [https://github.com/SeuUsuario/creditcard-fraud-dashboard.git](https://github.com/SeuUsuario/creditcard-fraud-dashboard.git)
+cd creditcard-fraud-dashboard
+```
+Instale as dependências (recomenda-se o uso de um ambiente virtual - venv):
 
-## O que contém
-- **Home**: apresentação pessoal e objetivo profissional.
-- **Formação e Experiência**: cursos, certificações e experiências.
-- **Skills**: tecnologias, ferramentas e soft skills.
-- **Análise de Dados (obrigatória)**: 
-  - Apresentação do conjunto de dados e tipos de variáveis
-  - Medidas centrais, dispersão, distribuição, correlações
-  - Intervalos de confiança (IC) e Testes de hipótese com visualizações e interpretações
+```
+pip install -r requirements.txt
+```
+Baixe os dados:
 
-## Como personalizar
-- Edite os textos das abas *Home*, *Formação e Experiência* e *Skills* para refletir seu perfil.
-- Na *Análise de Dados*, você pode ajustar perguntas, filtros e amostragens.
+**Acesse o Dataset no Kaggle.**
+
+**Extraia o arquivo creditcard.csv.**
+
+**Coloque o arquivo dentro da pasta data/ do projeto (ou faça o upload do arquivo diretamente pela interface da aplicação na aba de Análise).**
+
+Inicie o servidor local do Streamlit:
+
+```
+streamlit run Home.py
+```
+## 🌐 Deploy
+
+O projeto está configurado para fácil deploy na nuvem via Streamlit Community Cloud. Basta conectar este repositório, selecionar Home.py como entrypoint e o ambiente instalará automaticamente as bibliotecas contidas no requirements.txt.
