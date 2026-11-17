@@ -1,0 +1,158 @@
+{
+  "selected_model": "Logistic Regression",
+  "method": "logistic_standardized_coefficients",
+  "interpretation": "Coeficientes no espaço padronizado: sinal indica contribuição ao logit do modelo; magnitude NÃO é causalidade nem valor monetário. Correlações podem alterar a interpretação.",
+  "feature_importances": [
+    {
+      "feature": "Amount",
+      "importance": 1.5541908732201395,
+      "absolute_importance": 1.5541908732201395
+    },
+    {
+      "feature": "V4",
+      "importance": 1.1123328995610244,
+      "absolute_importance": 1.1123328995610244
+    },
+    {
+      "feature": "V12",
+      "importance": -1.0626842005280137,
+      "absolute_importance": 1.0626842005280137
+    },
+    {
+      "feature": "V14",
+      "importance": -1.052829611089089,
+      "absolute_importance": 1.052829611089089
+    },
+    {
+      "feature": "V2",
+      "importance": 0.7947550797009227,
+      "absolute_importance": 0.7947550797009227
+    },
+    {
+      "feature": "V1",
+      "importance": 0.7637433400168948,
+      "absolute_importance": 0.7637433400168948
+    },
+    {
+      "feature": "V6",
+      "importance": -0.7334175861875284,
+      "absolute_importance": 0.7334175861875284
+    },
+    {
+      "feature": "V10",
+      "importance": -0.652815410452715,
+      "absolute_importance": 0.652815410452715
+    },
+    {
+      "feature": "V20",
+      "importance": -0.6401294781312769,
+      "absolute_importance": 0.6401294781312769
+    },
+    {
+      "feature": "V5",
+      "importance": 0.5232484978496031,
+      "absolute_importance": 0.5232484978496031
+    },
+    {
+      "feature": "V16",
+      "importance": -0.5124215341771197,
+      "absolute_importance": 0.5124215341771197
+    },
+    {
+      "feature": "V22",
+      "importance": 0.5087634123687249,
+      "absolute_importance": 0.5087634123687249
+    },
+    {
+      "feature": "V7",
+      "importance": -0.5039883044554142,
+      "absolute_importance": 0.5039883044554142
+    },
+    {
+      "feature": "V3",
+      "importance": 0.4861110986823529,
+      "absolute_importance": 0.4861110986823529
+    },
+    {
+      "feature": "V8",
+      "importance": -0.47921055094225595,
+      "absolute_importance": 0.47921055094225595
+    },
+    {
+      "feature": "V24",
+      "importance": -0.45627587021344035,
+      "absolute_importance": 0.45627587021344035
+    },
+    {
+      "feature": "V13",
+      "importance": -0.4533980031882572,
+      "absolute_importance": 0.4533980031882572
+    },
+    {
+      "feature": "V9",
+      "importance": -0.4334739284754432,
+      "absolute_importance": 0.4334739284754432
+    },
+    {
+      "feature": "V17",
+      "importance": -0.3928450192277634,
+      "absolute_importance": 0.3928450192277634
+    },
+    {
+      "feature": "V11",
+      "importance": 0.36060097463661517,
+      "absolute_importance": 0.36060097463661517
+    },
+    {
+      "feature": "V25",
+      "importance": 0.16840276421609446,
+      "absolute_importance": 0.16840276421609446
+    },
+    {
+      "feature": "V26",
+      "importance": -0.12518427597298606,
+      "absolute_importance": 0.12518427597298606
+    },
+    {
+      "feature": "V23",
+      "importance": 0.1155357572013001,
+      "absolute_importance": 0.1155357572013001
+    },
+    {
+      "feature": "V28",
+      "importance": 0.0957969692399521,
+      "absolute_importance": 0.0957969692399521
+    },
+    {
+      "feature": "V19",
+      "importance": 0.07100077540926217,
+      "absolute_importance": 0.07100077540926217
+    },
+    {
+      "feature": "V27",
+      "importance": -0.06149614753662424,
+      "absolute_importance": 0.06149614753662424
+    },
+    {
+      "feature": "V15",
+      "importance": -0.04816117684163251,
+      "absolute_importance": 0.04816117684163251
+    },
+    {
+      "feature": "V18",
+      "importance": -0.046909647517616414,
+      "absolute_importance": 0.046909647517616414
+    },
+    {
+      "feature": "V21",
+      "importance": 0.021000438442622966,
+      "absolute_importance": 0.021000438442622966
+    },
+    {
+      "feature": "Time",
+      "importance": -0.009587199348545837,
+      "absolute_importance": 0.009587199348545837
+    }
+  ],
+  "note": "Explicação global do comportamento do estimador; não atribui responsabilidade individual ou causalidade."
+}

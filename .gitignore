@@ -21,3 +21,6 @@ venv/
 # Operating system
 .DS_Store
 Thumbs.db
+
+# HF: pasta temporária de exportação (binários do modelo)
+/hf_export/

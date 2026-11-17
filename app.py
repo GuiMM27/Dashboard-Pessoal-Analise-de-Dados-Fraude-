@@ -55,9 +55,9 @@ except (ValueError, OSError, pd.errors.ParserError) as exc:
 
 st.info(f"Fonte atual: **{origin}**. A moeda dos valores não é informada e o tempo é relativo à primeira transação.")
 
-overview, time_tab, values_tab, model_tab, conclusions_tab = st.tabs([
+overview, time_tab, values_tab, model_tab, conclusions_tab, diagnostics_tab = st.tabs([
     "📌 Visão geral", "⏱️ Distribuição temporal", "💳 Valores das transações",
-    "🧠 Modelos de ML", "📋 Conclusões"
+    "🧠 Modelos de ML", "📋 Conclusões", "🔬 Diagnóstico de ML"
 ])
 
 with overview:
@@ -109,7 +109,7 @@ with model_tab:
         st.caption(result["methodology"])
     else:
         st.write("Nenhum modelo foi treinado nesta cópia. Execute `python -m src.train` com o CSV completo para gerar as métricas.")
-    st.info("Avaliaremos modelos usando PR-AUC, precision, recall, F1, matriz de confusão e limiares escolhidos no conjunto de validação.")
+    st.info("Os modelos foram avaliados usando PR-AUC, precision, recall, F1 e limiares escolhidos na validação.")
     st.markdown("O conjunto de teste será utilizado apenas ao final; não vamos escolher o limiar com base nele.")
 
 
@@ -220,11 +220,10 @@ with conclusions_tab:
         "probabilidades calibradas sem uma avaliação adicional."
     )
     st.markdown(
-        "**Evolução planejada:** (1) analisar erros e calibrar probabilidades; "
-        "(2) avaliar limiares com custos de falsos positivos e falsos negativos; "
-        "(3) adicionar explicabilidade e testes de robustez temporal; "
-        "(4) disponibilizar inferência por uma API FastAPI; "
-        "(5) publicar o modelo e seu Model Card no Hugging Face."
+        "**Evolução:** a análise de erros e a explicabilidade global estão documentadas "
+        "na aba Diagnóstico de ML; a API FastAPI pode ser executada localmente. "
+        "Próximas validações: calibração, custos de falso positivo/negativo, testes prospectivos "
+        "e publicação de um modelo documentado no Hugging Face."
     )
     st.success(
         "Conclusão: o dataset mostra por que detectar eventos raros exige "
@@ -232,6 +231,105 @@ with conclusions_tab:
         "Este projeto é um estudo de ML Engineering, não um mecanismo pronto "
         "para bloquear transações reais."
     )
+
+
+with diagnostics_tab:
+    st.subheader("Análise de erros e explicabilidade do modelo")
+    st.caption("Dados agregados do treinamento local. Não carregamos observações individuais na nuvem.")
+    error_path = ROOT / "reports" / "error_analysis.json"
+    explain_path = ROOT / "reports" / "explainability.json"
+    if error_path.exists() and explain_path.exists():
+        error = json.loads(error_path.read_text(encoding="utf-8"))
+        explanation = json.loads(explain_path.read_text(encoding="utf-8"))
+        m = error["test_metrics"]
+        st.markdown(f"**Modelo auditado:** {error['selected_model']} | limiar fixado na validação: `{error['threshold_fixed_on_validation']:.6f}`")
+        x1, x2, x3 = st.columns(3)
+        x1.metric("Fraudes detectadas — TP", m["tp"])
+        x2.metric("Fraudes não detectadas — FN", m["fn"])
+        x3.metric("Alertas incorretos — FP", m["fp"])
+        st.markdown("### Matriz de confusão no teste — decisão já congelada")
+        import plotly.graph_objects as go
+       
+        # Matriz de confusão com cores por tipo de resultado
+        matriz = go.Figure(
+            data=go.Heatmap(
+                z=[
+                    [0, 2],
+                    [1, 3]
+                ],
+                x=["Prevista legítima", "Prevista fraude"],
+                y=["Real legítima", "Real fraude"],
+                text=[
+                    [str(m["tn"]), str(m["fp"])],
+                    [str(m["fn"]), str(m["tp"])]
+                ],
+                texttemplate="%{text}",
+                textfont=dict(
+                    color="white",
+                    size=18
+                ),
+                colorscale=[
+                    [0.0, "#17365D"],
+                    [0.1666, "#17365D"],
+                    [0.1667, "#B53B4A"],
+                    [0.4999, "#B53B4A"],
+                    [0.5, "#9A5D12"],
+                    [0.8333, "#9A5D12"],
+                    [0.8334, "#167347"],
+                    [1.0, "#167347"]
+                ],
+                zmin=0,
+                zmax=3,
+                showscale=False,
+                xgap=4,
+                ygap=4,
+                hovertemplate=(
+                    "%{y}<br>"
+                    "%{x}<br>"
+                    "Quantidade: %{text}"
+                    "<extra></extra>"
+                )
+            )
+        )
+
+        matriz.update_layout(
+            height=380,
+            margin=dict(l=20, r=20, t=20, b=20),
+            xaxis=dict(side="bottom"),
+            yaxis=dict(autorange="reversed")
+        )
+
+        st.plotly_chart(
+            matriz,
+            use_container_width=True
+        )
+
+        st.caption(
+            "🔵 Azul: legítimas identificadas corretamente | "
+            "🟡 Amarelo: falsos positivos | "
+            "🔴 Vermelho: fraudes não detectadas | "
+            "🟢 Verde: fraudes detectadas corretamente."
+        )
+
+        st.markdown("### Em quais faixas de Amount ocorreram os erros?")
+        err_df = pd.DataFrame(error["amount_error_buckets_test"])
+        st.plotly_chart(px.bar(err_df, x="faixa", y=["FP", "FN"], barmode="group",
+                               labels={"faixa": "Amount (moeda desconhecida)", "value": "Erros"}), use_container_width=True)
+        st.caption("Números descritivos sobre o teste, sem ajustar o modelo com base neles.")
+        st.markdown("### Sensibilidade ao limiar — apenas validação")
+        val_options = pd.DataFrame(error["validation_candidates_only"])
+        st.dataframe(val_options[["threshold", "precision", "recall", "f1", "tp", "fp", "fn"]],
+                     hide_index=True, use_container_width=True)
+        st.caption("Valores de referência calculados na validação. O limiar de produção experimental NÃO muda com este gráfico.")
+        st.markdown("### Quais variáveis influenciam o modelo?")
+        importance = pd.DataFrame(explanation["feature_importances"]).head(12)
+        st.plotly_chart(px.bar(importance.iloc[::-1], x="importance", y="feature", orientation="h",
+                               labels={"importance": "Peso no estimador (não causal)", "feature": "Variável"}),
+                        use_container_width=True)
+        st.info(explanation["interpretation"])
+        st.warning("V1–V28 são componentes anonimizadas. A importância estatística NÃO identifica causa de negócio. O score ainda NÃO foi calibrado.")
+    else:
+        st.info("Relatórios ainda não disponíveis nesta versão. Com o CSV e o modelo local, rode `python -m src.diagnostics` e envie os JSON agregados gerados em `reports/` para o GitHub.")
 
 st.divider()
 st.caption("Projeto educacional de ML Engineering | Dados históricos anonimizados | Código e resultados experimentais reproduzíveis")

@@ -100,8 +100,14 @@ def train(data_path: Path | str = ROOT / "data" / "creditcard.csv"):
     for name, (_, estimator, threshold) in candidates.items():
         metrics = evaluate(y_test, estimator.predict_proba(x_test)[:, 1], threshold)
         rows.append({"model": name, "threshold": round(threshold, 6), **metrics})
-    joblib.dump({"pipeline": candidates[best_name][1], "threshold": candidates[best_name][2],
-                 "features": FEATURES}, models_dir / "fraud_model.joblib")
+    import sklearn
+    joblib.dump({
+        "pipeline": candidates[best_name][1],
+        "threshold": candidates[best_name][2],
+        "features": FEATURES,
+        "model_name": best_name,
+        "sklearn_version": sklearn.__version__,
+    }, models_dir / "fraud_model.joblib")
     report = {
         "methodology": "Ordenação por Time; treino 60%, validação 20%, teste final 20%. "
                        "O melhor modelo foi selecionado por PR-AUC de validação; "

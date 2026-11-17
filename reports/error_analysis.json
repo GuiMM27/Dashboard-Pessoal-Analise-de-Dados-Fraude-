@@ -1,0 +1,226 @@
+{
+  "selected_model": "Logistic Regression",
+  "threshold_fixed_on_validation": 0.9999860881925672,
+  "test_metrics": {
+    "pr_auc": 0.743626,
+    "roc_auc": 0.982026,
+    "precision": 0.943396,
+    "recall": 0.666667,
+    "f1": 0.78125,
+    "tp": 50,
+    "fp": 3,
+    "fn": 25,
+    "tn": 56884
+  },
+  "validation_candidates_only": [
+    {
+      "threshold": 0.5,
+      "pr_auc": 0.771877,
+      "roc_auc": 0.970927,
+      "precision": 0.02697,
+      "recall": 0.894737,
+      "f1": 0.052361,
+      "tp": 51,
+      "fp": 1840,
+      "fn": 6,
+      "tn": 55064
+    },
+    {
+      "threshold": 0.9045200978306392,
+      "pr_auc": 0.771877,
+      "roc_auc": 0.970927,
+      "precision": 0.168421,
+      "recall": 0.842105,
+      "f1": 0.280702,
+      "tp": 48,
+      "fp": 237,
+      "fn": 9,
+      "tn": 56667
+    },
+    {
+      "threshold": 0.999922183200902,
+      "pr_auc": 0.771877,
+      "roc_auc": 0.970927,
+      "precision": 0.736842,
+      "recall": 0.736842,
+      "f1": 0.736842,
+      "tp": 42,
+      "fp": 15,
+      "fn": 15,
+      "tn": 56889
+    },
+    {
+      "threshold": 0.9999860881925672,
+      "pr_auc": 0.771877,
+      "roc_auc": 0.970927,
+      "precision": 0.909091,
+      "recall": 0.701754,
+      "f1": 0.792079,
+      "tp": 40,
+      "fp": 4,
+      "fn": 17,
+      "tn": 56900
+    }
+  ],
+  "amount_error_buckets_test": [
+    {
+      "faixa": "0",
+      "TP": 4,
+      "FP": 0,
+      "FN": 1,
+      "TN": 253
+    },
+    {
+      "faixa": "(0, 10]",
+      "TP": 30,
+      "FP": 0,
+      "FN": 10,
+      "TN": 22119
+    },
+    {
+      "faixa": "(10, 50]",
+      "TP": 4,
+      "FP": 0,
+      "FN": 6,
+      "TN": 17814
+    },
+    {
+      "faixa": "(50, 100]",
+      "TP": 4,
+      "FP": 0,
+      "FN": 1,
+      "TN": 6822
+    },
+    {
+      "faixa": "(100, 500]",
+      "TP": 6,
+      "FP": 1,
+      "FN": 5,
+      "TN": 8330
+    },
+    {
+      "faixa": "(500, 1000]",
+      "TP": 1,
+      "FP": 0,
+      "FN": 1,
+      "TN": 1047
+    },
+    {
+      "faixa": ">1000",
+      "TP": 1,
+      "FP": 2,
+      "FN": 1,
+      "TN": 499
+    }
+  ],
+  "score_histogram_test": [
+    {
+      "classe": "legitima",
+      "faixa": "0.0–0.1",
+      "quantidade": 46834
+    },
+    {
+      "classe": "legitima",
+      "faixa": "0.1–0.2",
+      "quantidade": 4551
+    },
+    {
+      "classe": "legitima",
+      "faixa": "0.2–0.3",
+      "quantidade": 2225
+    },
+    {
+      "classe": "legitima",
+      "faixa": "0.3–0.4",
+      "quantidade": 1144
+    },
+    {
+      "classe": "legitima",
+      "faixa": "0.4–0.5",
+      "quantidade": 723
+    },
+    {
+      "classe": "legitima",
+      "faixa": "0.5–0.6",
+      "quantidade": 446
+    },
+    {
+      "classe": "legitima",
+      "faixa": "0.6–0.7",
+      "quantidade": 325
+    },
+    {
+      "classe": "legitima",
+      "faixa": "0.7–0.8",
+      "quantidade": 264
+    },
+    {
+      "classe": "legitima",
+      "faixa": "0.8–0.9",
+      "quantidade": 176
+    },
+    {
+      "classe": "legitima",
+      "faixa": "0.9–1.0",
+      "quantidade": 199
+    },
+    {
+      "classe": "fraude",
+      "faixa": "0.0–0.1",
+      "quantidade": 3
+    },
+    {
+      "classe": "fraude",
+      "faixa": "0.1–0.2",
+      "quantidade": 2
+    },
+    {
+      "classe": "fraude",
+      "faixa": "0.2–0.3",
+      "quantidade": 2
+    },
+    {
+      "classe": "fraude",
+      "faixa": "0.3–0.4",
+      "quantidade": 1
+    },
+    {
+      "classe": "fraude",
+      "faixa": "0.4–0.5",
+      "quantidade": 0
+    },
+    {
+      "classe": "fraude",
+      "faixa": "0.5–0.6",
+      "quantidade": 1
+    },
+    {
+      "classe": "fraude",
+      "faixa": "0.6–0.7",
+      "quantidade": 1
+    },
+    {
+      "classe": "fraude",
+      "faixa": "0.7–0.8",
+      "quantidade": 1
+    },
+    {
+      "classe": "fraude",
+      "faixa": "0.8–0.9",
+      "quantidade": 0
+    },
+    {
+      "classe": "fraude",
+      "faixa": "0.9–1.0",
+      "quantidade": 64
+    }
+  ],
+  "uncalibrated_score_brier_test": 0.02273180690376956,
+  "methodology": "Análise descritiva de erros no teste já congelado; alternativas de limiar calculadas APENAS na validação. Scores não calibrados.",
+  "limitations": [
+    "O teste não foi usado para alterar modelo ou limiar.",
+    "Score do modelo com class_weight não corresponde necessariamente à probabilidade real de fraude.",
+    "Não é possível explicar causas de negócio a partir das V1–V28 anonimizadas.",
+    "Intervalos de confiança e teste prospectivo ainda não foram realizados."
+  ]
+}
