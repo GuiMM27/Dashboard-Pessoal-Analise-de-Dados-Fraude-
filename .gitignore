@@ -1,0 +1,23 @@
+# Raw source datasets and personally uploaded files
+/data/*.csv
+/data/*.parquet
+/data/*.xlsx
+# Trained model binaries: upload validated models to Hugging Face, not Git
+/models/
+*.joblib
+*.pkl
+# Local settings and secrets
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+# Python and notebooks
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.ipynb_checkpoints/
+# Operating system
+.DS_Store
+Thumbs.db
