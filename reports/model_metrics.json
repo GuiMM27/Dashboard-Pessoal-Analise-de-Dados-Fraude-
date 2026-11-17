@@ -1,0 +1,51 @@
+{
+  "methodology": "Ordenação por Time; treino 60%, validação 20%, teste final 20%. O melhor modelo foi selecionado por PR-AUC de validação; limiares foram ajustados somente na validação. Observações duplicadas auditadas, não eliminadas automaticamente. Métricas pertencem a dados históricos e não representam desempenho em produção.",
+  "selected_model": "Logistic Regression",
+  "n_train": 170884,
+  "n_val": 56961,
+  "n_test": 56962,
+  "train_fraud_count": 360,
+  "validation_fraud_count": 57,
+  "test_fraud_count": 75,
+  "models": [
+    {
+      "model": "Dummy (prevalência)",
+      "threshold": 0.5,
+      "pr_auc": 0.001317,
+      "roc_auc": 0.5,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 75,
+      "tn": 56887
+    },
+    {
+      "model": "Logistic Regression",
+      "threshold": 0.999986,
+      "pr_auc": 0.743626,
+      "roc_auc": 0.982026,
+      "precision": 0.943396,
+      "recall": 0.666667,
+      "f1": 0.78125,
+      "tp": 50,
+      "fp": 3,
+      "fn": 25,
+      "tn": 56884
+    },
+    {
+      "model": "Random Forest",
+      "threshold": 0.333171,
+      "pr_auc": 0.787374,
+      "roc_auc": 0.92381,
+      "precision": 0.873016,
+      "recall": 0.733333,
+      "f1": 0.797101,
+      "tp": 55,
+      "fp": 8,
+      "fn": 20,
+      "tn": 56879
+    }
+  ]
+}

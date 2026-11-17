@@ -1,0 +1,218 @@
+{
+  "dataset": "Credit Card Fraud Detection (anonymized)",
+  "source_note": "Time é relativo ao início da coleta. Amount não informa moeda. Dados históricos, não de produção.",
+  "n_rows": 284807,
+  "n_columns": 31,
+  "fraud_count": 492,
+  "legitimate_count": 284315,
+  "fraud_rate_pct": 0.1727485630620034,
+  "duplicate_rows": 1081,
+  "missing_values": 0,
+  "time_max_seconds": 172792.0,
+  "amount_mean": 88.34961925093134,
+  "amount_median": 22.0,
+  "by_class": {
+    "0": {
+      "count": 284315,
+      "amount_mean": 88.29102242231328,
+      "amount_median": 22.0,
+      "amount_p90": 202.72400000000025
+    },
+    "1": {
+      "count": 492,
+      "amount_mean": 122.21132113821139,
+      "amount_median": 9.25,
+      "amount_p90": 346.74600000000004
+    }
+  },
+  "hourly": [
+    {
+      "hour": 0,
+      "fraud_count": 6,
+      "count": 7695,
+      "fraud_rate_pct": 0.07797270955165692
+    },
+    {
+      "hour": 1,
+      "fraud_count": 10,
+      "count": 4220,
+      "fraud_rate_pct": 0.23696682464454977
+    },
+    {
+      "hour": 2,
+      "fraud_count": 57,
+      "count": 3328,
+      "fraud_rate_pct": 1.7127403846153848
+    },
+    {
+      "hour": 3,
+      "fraud_count": 17,
+      "count": 3492,
+      "fraud_rate_pct": 0.4868270332187858
+    },
+    {
+      "hour": 4,
+      "fraud_count": 23,
+      "count": 2209,
+      "fraud_rate_pct": 1.041195110909914
+    },
+    {
+      "hour": 5,
+      "fraud_count": 11,
+      "count": 2990,
+      "fraud_rate_pct": 0.36789297658862874
+    },
+    {
+      "hour": 6,
+      "fraud_count": 9,
+      "count": 4101,
+      "fraud_rate_pct": 0.21945866861741037
+    },
+    {
+      "hour": 7,
+      "fraud_count": 23,
+      "count": 7243,
+      "fraud_rate_pct": 0.3175479773574486
+    },
+    {
+      "hour": 8,
+      "fraud_count": 9,
+      "count": 10276,
+      "fraud_rate_pct": 0.08758271701050993
+    },
+    {
+      "hour": 9,
+      "fraud_count": 16,
+      "count": 15838,
+      "fraud_rate_pct": 0.10102285642126531
+    },
+    {
+      "hour": 10,
+      "fraud_count": 8,
+      "count": 16598,
+      "fraud_rate_pct": 0.04819857814194481
+    },
+    {
+      "hour": 11,
+      "fraud_count": 53,
+      "count": 16856,
+      "fraud_rate_pct": 0.3144280968201234
+    },
+    {
+      "hour": 12,
+      "fraud_count": 17,
+      "count": 15420,
+      "fraud_rate_pct": 0.11024643320363164
+    },
+    {
+      "hour": 13,
+      "fraud_count": 17,
+      "count": 15365,
+      "fraud_rate_pct": 0.11064106736088514
+    },
+    {
+      "hour": 14,
+      "fraud_count": 23,
+      "count": 16570,
+      "fraud_rate_pct": 0.1388050694025347
+    },
+    {
+      "hour": 15,
+      "fraud_count": 26,
+      "count": 16461,
+      "fraud_rate_pct": 0.15794909179272218
+    },
+    {
+      "hour": 16,
+      "fraud_count": 22,
+      "count": 16453,
+      "fraud_rate_pct": 0.1337142162523552
+    },
+    {
+      "hour": 17,
+      "fraud_count": 29,
+      "count": 16166,
+      "fraud_rate_pct": 0.17938884077693926
+    },
+    {
+      "hour": 18,
+      "fraud_count": 33,
+      "count": 17039,
+      "fraud_rate_pct": 0.19367333763718528
+    },
+    {
+      "hour": 19,
+      "fraud_count": 19,
+      "count": 15649,
+      "fraud_rate_pct": 0.12141350885040576
+    },
+    {
+      "hour": 20,
+      "fraud_count": 18,
+      "count": 16756,
+      "fraud_rate_pct": 0.10742420625447602
+    },
+    {
+      "hour": 21,
+      "fraud_count": 16,
+      "count": 17703,
+      "fraud_rate_pct": 0.09038016155453878
+    },
+    {
+      "hour": 22,
+      "fraud_count": 9,
+      "count": 15441,
+      "fraud_rate_pct": 0.05828638041577618
+    },
+    {
+      "hour": 23,
+      "fraud_count": 21,
+      "count": 10938,
+      "fraud_rate_pct": 0.19199122325836532
+    }
+  ],
+  "amount_groups": [
+    {
+      "range": "0",
+      "fraud_count": 27,
+      "count": 1825,
+      "fraud_rate_pct": 1.4794520547945205
+    },
+    {
+      "range": "(0, 10]",
+      "fraud_count": 222,
+      "count": 98439,
+      "fraud_rate_pct": 0.22552037302288724
+    },
+    {
+      "range": "(10, 50]",
+      "fraud_count": 57,
+      "count": 90781,
+      "fraud_rate_pct": 0.06278846895275443
+    },
+    {
+      "range": "(50, 100]",
+      "fraud_count": 56,
+      "count": 37254,
+      "fraud_rate_pct": 0.1503194287861706
+    },
+    {
+      "range": "(100, 500]",
+      "fraud_count": 95,
+      "count": 47366,
+      "fraud_rate_pct": 0.20056580669678675
+    },
+    {
+      "range": "(500, 1000]",
+      "fraud_count": 26,
+      "count": 6202,
+      "fraud_rate_pct": 0.41921960657852303
+    },
+    {
+      "range": ">1000",
+      "fraud_count": 9,
+      "count": 2940,
+      "fraud_rate_pct": 0.30612244897959184
+    }
+  ]
+}
